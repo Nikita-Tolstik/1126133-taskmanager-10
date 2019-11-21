@@ -1,9 +1,8 @@
 'use strict';
 
 // Меню
-const createSiteMenuTemplate = () => {
-  return (
-    `<section class="control__btn-wrap">
+const createSiteMenuTemplate = () =>
+  `<section class="control__btn-wrap">
           <input
             type="radio"
             name="control"
@@ -30,15 +29,12 @@ const createSiteMenuTemplate = () => {
           <label for="control__statistic" class="control__label"
             >STATISTICS</label
           >
-        </section>`
-  );
-};
+        </section>`;
 
 
 // Фильтры
-const createFilterTemplate = () => {
-  return (
-    `<section class="main__filter filter container">
+const createFilterTemplate = () =>
+  `<section class="main__filter filter container">
         <input
           type="radio"
           id="filter__all"
@@ -105,14 +101,11 @@ const createFilterTemplate = () => {
         <label for="filter__archive" class="filter__label"
           >Archive <span class="filter__archive-count">115</span></label
         >
-      </section>`
-  );
-};
+      </section>`;
 
 // Список задач
-const createBoardTemplate = () => {
-  return (
-    `<section class="board container">
+const createBoardTemplate = () =>
+  `<section class="board container">
     <div class="board__filter-list">
       <a href="#" class="board__filter">SORT BY DEFAULT</a>
       <a href="#" class="board__filter">SORT BY DATE up</a>
@@ -120,14 +113,12 @@ const createBoardTemplate = () => {
     </div>
 
     <div class="board__tasks"></div>
-    </section>`
-  );
-};
+    </section>`;
+
 
 // Форма создания/редактирования задачи
-const createTaskEditTemplate = () => {
-  return (
-    `<article class="card card--edit card--yellow card--repeat">
+const createTaskEditTemplate = () =>
+  `<article class="card card--edit card--yellow card--repeat">
         <form class="card__form" method="get">
          <div class="card__inner">
         <div class="card__color-bar">
@@ -381,14 +372,12 @@ const createTaskEditTemplate = () => {
         </div>
       </div>
     </form>
-  </article>`
-  );
-};
+  </article>`;
+
 
 // Карточка задачи
-const createCardTemplate = () => {
-  return (
-    `<article class="card card--yellow">
+const createCardTemplate = () =>
+  `<article class="card card--yellow">
     <div class="card__form">
       <div class="card__inner">
         <div class="card__control">
@@ -443,16 +432,11 @@ const createCardTemplate = () => {
         </div>
       </div>
     </div>
-  </article>`
-  );
-};
+  </article>`;
 
 // Кнопка
-const createLoadMoreButtonTemplate = () => {
-  return (
-    `<button class="load-more" type="button">load more</button>`
-  );
-};
+const createLoadMoreButtonTemplate = () =>
+  `<button class="load-more" type="button">load more</button>`;
 
 
 const render = (container, template, place) => {
