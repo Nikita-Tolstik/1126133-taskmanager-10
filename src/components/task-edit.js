@@ -1,6 +1,7 @@
 // Форма создания/редактирования задачи
+import AbstractComponent from './abstract-component.js';
 import {COLORS, DAYS, MONTH_NAMES} from '../const.js';
-import {createElement, formatTime} from '../utils.js';
+import {formatTime} from '../utils.js';
 
 const createColorsMarkup = (newColors, currentColor) => {
   return newColors
@@ -177,25 +178,14 @@ const createTaskEditTemplate = (task) => {
   );
 };
 
-export default class TaskEdit {
+export default class TaskEdit extends AbstractComponent {
   constructor(task) {
+    super();
+
     this._task = task;
-    this._element = null;
   }
 
   getTemplate() {
     return createTaskEditTemplate(this._task);
-  }
-
-  getElement() {
-    if (!this._element) {
-      this._element = createElement(this.getTemplate());
-    }
-
-    return this._element;
-  }
-
-  removeElement() {
-    this._element = null;
   }
 }
