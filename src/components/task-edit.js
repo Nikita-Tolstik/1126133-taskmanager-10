@@ -1,7 +1,7 @@
 // Форма создания/редактирования задачи
 import AbstractComponent from './abstract-component.js';
 import {COLORS, DAYS, MONTH_NAMES} from '../const.js';
-import {formatTime} from '../utils.js';
+import {formatTime} from '../utils/common.js';
 
 const createColorsMarkup = (newColors, currentColor) => {
   return newColors
