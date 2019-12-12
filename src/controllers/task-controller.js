@@ -46,6 +46,20 @@ export default class TaskController {
     });
 
 
+    taskComponent.setArchiveButtonClickHandler(() => {
+      this._onDataChange(this, task, Object.assign({}, task, {
+        isArchive: !task.isArchive,
+      }));
+    });
+
+    taskComponent.setFavoritesButtonClickHandler(() => {
+      this._onDataChange(this, task, Object.assign({}, task, {
+        isFavorite: !task.isFavorite,
+      }));
+
+    });
+
+
     render(this._container, taskComponent, RenderPosition.BEFOREEND);
 
   }
