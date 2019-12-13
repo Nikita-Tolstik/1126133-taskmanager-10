@@ -215,12 +215,10 @@ export default class TaskEdit extends AbstractSmartComponent {
 
   recoveryListeners() {
     this._subscribeOnEvents();
-
   }
 
   rerender() {
     super.rerender();
-
   }
 
   reset() {
@@ -237,9 +235,13 @@ export default class TaskEdit extends AbstractSmartComponent {
   _subscribeOnEvents() {
     const element = this.getElement();
 
+
     element.querySelector(`.card__date-deadline-toggle`)
       .addEventListener(`click`, () => {
+
         this._isDateShowing = !this._isDateShowing;
+
+        this._task.dueDate = new Date();
 
         this.rerender();
       });
@@ -259,6 +261,7 @@ export default class TaskEdit extends AbstractSmartComponent {
         this.rerender();
       });
     }
+
   }
 
 }

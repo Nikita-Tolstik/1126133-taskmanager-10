@@ -82,6 +82,7 @@ export default class BoardController {
   }
 
   _onDataChange(taskController, oldData, newData) {
+
     const index = this._tasks.findIndex((it) => it === oldData);
 
     if (index === -1) {
@@ -108,7 +109,7 @@ export default class BoardController {
         sortedTasks = this._tasks.slice().sort((a, b) => b.dueDate - a.dueDate);
         break;
       case SortType.DEFAULT:
-        sortedTasks = this._tasks.slice(0, this._showingTasksCount);
+        sortedTasks = this._tasks.slice(0, SHOWING_TASKS_COUNT_ON_START);
         break;
     }
 
@@ -120,6 +121,7 @@ export default class BoardController {
     this._showedTaskControllers = newTasks;
 
     if (sortType === SortType.DEFAULT) {
+      this._showingTasksCount = SHOWING_TASKS_COUNT_ON_START;
       this._renderLoadMoreButton();
     } else {
       remove(this._loadMoreButtonComponent);

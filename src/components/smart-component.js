@@ -14,6 +14,7 @@ export default class AbstractSmartComponent extends AbstractComponent {
 
     oldElement.replaceWith(newElement);
 
+
     this.recoveryListeners();
   }
 }
