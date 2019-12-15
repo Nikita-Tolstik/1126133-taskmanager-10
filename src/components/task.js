@@ -1,6 +1,5 @@
 // Карточка задачи
 import AbstractComponent from './abstract-component.js';
-import {MONTH_NAMES} from '../const.js';
 import {formatTime, formatDate} from '../utils/common.js';
 
 
