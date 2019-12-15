@@ -1,7 +1,7 @@
 // Форма создания/редактирования задачи
 import AbstractSmartComponent from './smart-component.js';
 import {COLORS, DAYS, MONTH_NAMES} from '../const.js';
-import {formatTime} from '../utils/common.js';
+import {formatTime, formatDate} from '../utils/common.js';
 
 const isRepeating = (repeatingDays) => {
   return Object.values(repeatingDays).some(Boolean);
@@ -90,9 +90,8 @@ const createTaskEditTemplate = (task, options = {}) => {
     (isRepeatingTask && !isRepeating(activeRepeatingDays));
 
 
-  const date = isDateShowing ? `${dueDate.getDate()} ${MONTH_NAMES[dueDate.getMonth()]}` : ``;
-
-  const time = isDateShowing ? formatTime(dueDate) : ``;
+  const date = (isDateShowing && dueDate) ? formatDate(dueDate) : ``;
+  const time = (isDateShowing && dueDate) ? formatTime(dueDate) : ``;
 
 
   const repeatClass = isRepeatingTask ? `card--repeat` : ``;
