@@ -32,7 +32,6 @@ const createColorsMarkup = (newColors, currentColor) => {
     .join(`\n`);
 };
 
-
 const createRepeatingDaysMarkup = (newDays, repeatingDays) => {
   return newDays
     .map((day) => {
@@ -198,6 +197,7 @@ export default class TaskEdit extends AbstractSmartComponent {
     this._isRepeatingTask = Object.values(task.repeatingDays).some(Boolean);
     this._activeRepeatingDays = Object.assign({}, task.repeatingDays);
     this._flatpickr = null;
+    this._submitHandler = null;
 
     this._applyFlatpickr();
     this._subscribeOnEvents();
@@ -215,9 +215,12 @@ export default class TaskEdit extends AbstractSmartComponent {
   setSubmitHandler(handler) {
     this.getElement().querySelector(`form`)
     .addEventListener(`submit`, handler);
+
+    this._submitHandler = handler;
   }
 
   recoveryListeners() {
+    this.setSubmitHandler(this._submitHandler);
     this._subscribeOnEvents();
   }
 
