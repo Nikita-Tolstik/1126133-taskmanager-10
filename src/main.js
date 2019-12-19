@@ -7,9 +7,7 @@ import BoardController from './controllers/board.js';
 import {generateTasks} from './mock/task.js';
 import {render, RenderPosition} from './utils/render.js';
 
-
 const TASK_COUNT = 20;
-
 
 const siteMainElement = document.querySelector(`.main`);
 const siteHeaderElement = siteMainElement.querySelector(`.main__control`);
@@ -24,5 +22,8 @@ render(siteMainElement, boardComponent, RenderPosition.BEFOREEND);
 
 const tasks = generateTasks(TASK_COUNT);
 
-const boardController = new BoardController(boardComponent);
-boardController.render(tasks);
+const tasksModel = new TasksModel();
+tasksModel.setTasks(tasks);
+
+const boardController = new BoardController(boardComponent, tasksModel);
+boardController.render();
